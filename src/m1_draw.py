@@ -45,8 +45,41 @@ def test_draw_a_picture():
     test_window.close_on_mouse_click()
 
 
+def draw_a_picture(point, n, color, window):
+    circle_point = rg.Point(point.x, point.y)
+    circle = rg.Circle(circle_point, 100)
+    circle.attach_to(window)
+    rect = rg.Rectangle(rg.Point(point.x + 80, point.y + 40), rg.Point(point.x - 80, point.y -40))
+    rect.attach_to(window)
+    window.render(0.5)
+    for k in range(n):
+        endpoint = rg.Point(point.x*k, point.y - 40*k)
+        line = rg.Line(point, endpoint)
+        if ((k + 1) % 2 == 0):
+            line.color = 'orange'
+        else:
+            line.color = color
+        line.attach_to(window)
+
+
+
+
+############
+#    for k in range(n):
+  #      point1 = rg.Point(point.x + 40 * k, point.y)
+   #     point2 = rg.Point(point.x , point.y)
+    #    line = rg.Line(point1, point2)
+     #   line.attach_to(window)
+      #  return line
+    #for k in range(n - 2 + 1):
+     #   if is_prime(k):
+      #      color = 'orange'
+       #     line.color = color
+        #return color
+ #   window.render(.5)
+#########
 ###############################################################################
-# def draw_a_picture(point, n, color, window):
+#     def draw_a_picture(point, n, color, window):
 #     """
 #     See   m1_draw_problem_picture.pdf   in this project for pictures
 #     that may help you better understand the following specification:
@@ -127,9 +160,8 @@ def is_prime(n):
 #
 #
 #
-def draw_a_picture(point, n, color, window):
 
-    pass
+
 
 
 main()

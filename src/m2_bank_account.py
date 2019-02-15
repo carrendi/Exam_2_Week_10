@@ -3,8 +3,8 @@
 # successful
 def main():
     # when you have initialized your object, use the calls below to test
-    #run_test_init()
-    #run_test_withdraw()
+    run_test_init()
+    run_test_withdraw()
     return
 
 
@@ -16,7 +16,13 @@ class Bank(object):
         -- ACCOUNT NUMBER, a string that is unique to each account holder.
     """
 
-    def __init__(self, name, initial_deposit, account_number):
+    def __init__(self, name, balance, account_number):
+        self.name = name
+        self.balance = balance
+        self.account_number = account_number
+        print(str(self.name) + ' ' + str(self.balance) + ' ' + str(self.account_number))
+
+
         """
         What comes in:
           -- self
@@ -53,6 +59,9 @@ class Bank(object):
 
 
     def withdraw(self, amount):
+        self.amount = amount
+        balance = self.balance - self.amount
+
         """
         What comes in:
         -- self
@@ -109,11 +118,47 @@ def run_test_init():
     # TODO: 2. Add two more test cases for your Bank class below.
     # ---------------------------------------------------------------------
 
+    #Test 2
+    b2= Bank('meredith', 20000, 'm1')
+    expected_name = 'meredith'
+    expected_balance = 20000
+    expected_account_number = 'b2'
+    print("Expected:", expected_name, expected_balance, expected_account_number)
+    print("Actual:  ", b2.name, b2.balance, b2.account_number)
+    if (expected_name == b2.name) and (expected_balance == b2.balance) and (expected_account_number == b2.account_number):
+        print("Test passed SUCCESSFULLY!")
+    else:
+        print_failure_message()
+    print()
+
+    # Test 3
+    b3 = Bank('Christina', 30000, 'm3')
+    expected_name = 'Christina'
+    expected_balance = 30000
+    expected_account_number = 'b3'
+    print("Expected:", expected_name, expected_balance, expected_account_number)
+    print("Actual:  ", b3.name, b3.balance, b3.account_number)
+    if (expected_name == b3.name) and (expected_balance == b3.balance) and (
+            expected_account_number == b3.account_number):
+        print("Test passed SUCCESSFULLY!")
+    else:
+        print_failure_message()
+    print()
+
 # ---------------------------------------------------------------------
 # TODO: 3. Implement your test for the withdraw method below
 # ---------------------------------------------------------------------
-def run_test_withdrawal():
-# Implement at least two tests.  Use copy and paste to speed your coding.
+def run_test_withdraw():
+    b1.withdraw(8000)
+    b1.name is 'Brackin'
+    b1.balance is 2000.00
+    b1. account_number is 'A1'
+
+    b2.withdraw(50.25)
+    b2.name is 'Lovelace'
+    b2.balance is 10.15
+    b2.account_number is 'A2'
+
     pass
 
 
